@@ -3,14 +3,10 @@ import java.util.ArrayList;
 import data.Particulars;
 
 public class Route {
-	ArrayList<Point> pt;
-	String name;
+	private String name;
 	
 	
-	public Route(ArrayList<Point> pt){
-	pt=new ArrayList();
-	
-	}
+	public Route(){}
 	
 	public void down(int y) {
 		y++;
@@ -39,24 +35,61 @@ public class Route {
 		for (i=0; i < options.length; i++) {
 			String argument= options[i];
 			
-			for (int j = 0; j< pt.size();j++) {
-			  Point waypoint=pt.get(j);
-			  Point end =pt.get(j+1);
-			
+			  Point waypoint=pt.get(i);
+			  Point end =pt.get(i+1);
+			  int wx = waypoint.getX();
+			  int wy = waypoint.getY();
+			  int ex = end.getX();  
+			  int ey = end.getY();
+			  
+			  
+			  
 			  if (argument.compareToIgnoreCase("L") == 0 ){
-			
-				int wx = waypoint.getX();
-				int ex = end.getX();
-				
+				  
 				while (wx != ex ) {
 				left(x);	
 				}
 				character.setX(x);
-			
 			  }
-			}
+			
+			  else if (argument.compareToIgnoreCase("R") == 0) {
+				while (wx != ex ) {
+				right(x);	
+				}
+				character.setX(x);
+			  }
+			  
+			  else if (argument.compareToIgnoreCase("U") == 0) {
+				while (wy != ey ) {
+				up(y);	
+				}
+				character.setY(y);
+			  }
+			  
+			  else if (argument.compareToIgnoreCase("D") == 0) {
+					while (wy != ey ) {
+					down(y);	
+					}
+					character.setY(y);
+				  }
+			  else {
+				  
+				  System.err.println("Lack of information");
+			  
+			  }
+			  
+			  
 		}
 		
 	}
-			
+
+	
+	public String getName() {
+		return name;
+	}
+
+	
+	public void setName(String name) {
+		this.name = name;
+	}
 }
