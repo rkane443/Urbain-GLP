@@ -2,6 +2,12 @@ package processing;
 import java.util.ArrayList;
 import data.Particulars;
 
+/**
+ * 
+ * @author François-Laurent
+ *
+ */
+
 public class Route {
 	private String name;
 	
@@ -43,8 +49,8 @@ public class Route {
 			  int ey = end.getY();
 			  
 			  
-			  
-			  if (argument.compareToIgnoreCase("L") == 0 ){
+			// si on met L déplacement à gauche
+			if (argument.compareToIgnoreCase("L") == 0 ){
 				  
 				while (wx != ex ) {
 				left(x);	
@@ -52,21 +58,24 @@ public class Route {
 				character.setX(x);
 			  }
 			
-			  else if (argument.compareToIgnoreCase("R") == 0) {
+			// si on met L déplacement à droite
+			else if (argument.compareToIgnoreCase("R") == 0) {
 				while (wx != ex ) {
 				right(x);	
 				}
 				character.setX(x);
 			  }
-			  
-			  else if (argument.compareToIgnoreCase("U") == 0) {
+			
+			// si on met L déplacement en haut
+			else if (argument.compareToIgnoreCase("U") == 0) {
 				while (wy != ey ) {
 				up(y);	
 				}
 				character.setY(y);
 			  }
-			  
-			  else if (argument.compareToIgnoreCase("D") == 0) {
+			
+			// si on met D déplacement en bas
+			else if (argument.compareToIgnoreCase("D") == 0) {
 					while (wy != ey ) {
 					down(y);	
 					}
